@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -80,14 +81,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnAnswer.setOnClickListener(new View.OnClickListener() {
+            int x1, x2, x3;
+
             @Override
             public void onClick(View view) {
-                String s1 = edit01.getText().toString();
-                int x1 = Integer.parseInt(s1);
-                String s2 = edit02.getText().toString();
-                int x2 = Integer.parseInt(s2);
-                String s3 = edit03.getText().toString();
-                int x3 = Integer.parseInt(s3);
+                try {
+                    String s1 = edit01.getText().toString();
+                    x1 = Integer.parseInt(s1);
+                    String s2 = edit02.getText().toString();
+                    x2 = Integer.parseInt(s2);
+                    String s3 = edit03.getText().toString();
+                    x3 = Integer.parseInt(s3);
+                } catch (Exception e) {
+                    x1 = 0;
+                    x2 = 0;
+                    x3 = 0;
+                    Toast.makeText(MainActivity.this, "숫자를 제대로 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+
 
                 if (x1 == n1)
                     countStrike++;
@@ -124,6 +135,8 @@ public class MainActivity extends AppCompatActivity {
                 edit01.setText("");
                 edit02.setText("");
                 edit03.setText("");
+
+                edit01.requestFocus();
             }
         });
     }

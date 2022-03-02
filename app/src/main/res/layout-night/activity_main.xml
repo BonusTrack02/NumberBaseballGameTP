@@ -23,7 +23,7 @@
             android:textSize="20sp"
             android:inputType="number"
             android:maxLength="1"
-            android:text="1"
+            android:textColor="@color/black"
             android:background="@drawable/ic_baseball"/>
 
         <EditText
@@ -36,6 +36,7 @@
             android:textSize="20sp"
             android:inputType="number"
             android:maxLength="1"
+            android:textColor="@color/black"
             android:background="@drawable/ic_baseball"/>
 
         <EditText
@@ -46,6 +47,7 @@
             android:textSize="20sp"
             android:inputType="number"
             android:maxLength="1"
+            android:textColor="@color/black"
             android:imeOptions="actionDone"
             android:background="@drawable/ic_baseball"/>
 
@@ -67,6 +69,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         android:textSize="20sp"
+        android:textColor="@color/white"
         android:fontFamily="@font/cookierunblack"/>
 
     <ImageView
@@ -82,6 +85,7 @@
         android:layout_height="300dp"
         android:gravity="center_horizontal"
         android:fontFamily="@font/cookierunblack"
+        android:textColor="@color/white"
         android:textSize="24sp"/>
 
 
