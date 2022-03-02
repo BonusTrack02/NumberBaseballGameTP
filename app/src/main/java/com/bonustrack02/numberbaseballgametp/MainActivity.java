@@ -3,6 +3,8 @@ package com.bonustrack02.numberbaseballgametp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,6 +45,40 @@ public class MainActivity extends AppCompatActivity {
             n3 = rnd.nextInt(9) + 1;
         } while (n1 == n3 || n2 == n3);
 
+        edit01.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() >= 1) edit02.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        edit02.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() >= 1) edit03.requestFocus();
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         btnAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (x3 == n1)
                     countBall++;
 
-                resultText.append(x1 + " " + x2 + " " + x3 + "  " + countStrike + "Strike " + countBall + "Ball\n");
+                resultText.append(x1 + " " + x2 + " " + x3 + "   " + countStrike + "Strike " + countBall + "Ball\n");
 
                 if (countStrike == 3) {
                     endText.setText(x1 + " " + x2 + " " + x3 + " 정답입니다!");

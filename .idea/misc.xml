@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_baseball.xml" value="0.1625" />
+        <entry key="app/src/main/res/layout-night/activity_main.xml" value="0.2828125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2601851851851852" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/icon.xml" value="0.1625" />
       </map>
