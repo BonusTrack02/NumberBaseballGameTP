@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.kakao.adfit.ads.ba.BannerAdView;
 
 import java.util.Date;
 import java.util.Random;
