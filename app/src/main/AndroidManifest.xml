@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.bonustrack02.numberbaseballgametp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
@@ -10,14 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NumberBaseballGameTP">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".BeginningActivity"
+            android:exported="true"
+            android:theme="@style/BeginningFullscreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"/>
+
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8766850368593866~7288672358" />
     </application>
 
 </manifest>
