@@ -21,6 +21,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
+import java.util.Date;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        binding.kakaoAdview.setClientId("DAN-zpFTwikubnRm0cE7");
 
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
@@ -150,5 +153,43 @@ public class MainActivity extends AppCompatActivity {
                 binding.srcollview.fullScroll(ScrollView.FOCUS_DOWN);
             }
         });
+        binding.kakaoAdview.loadAd();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (binding.kakaoAdview != null) binding.kakaoAdview.resume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        if (binding.kakaoAdview != null) binding.kakaoAdview.pause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (binding.kakaoAdview != null) binding.kakaoAdview.destroy();
+    }
+
+    boolean wasPressed = false;
+    long lastTime;
+
+    @Override
+    public void onBackPressed() {
+        if (!wasPressed) {
+            Toast.makeText(this, "한 번 더 누르면 종료됩니다", Toast.LENGTH_SHORT).show();
+            wasPressed = true;
+            lastTime = new Date().getTime();
+        } else {
+            long nowTime = new Date().getTime();
+            if (nowTime - lastTime > 3000) wasPressed = false;
+            else super.onBackPressed();
+        }
     }
 }
