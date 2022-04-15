@@ -1,6 +1,7 @@
 package com.bonustrack02.numberbaseballgametp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -91,88 +92,84 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        binding.btnAnswer.setOnClickListener(new View.OnClickListener() {
+        binding.btnAnswer.setOnClickListener(view -> {
             int x1, x2, x3;
 
-            @Override
-            public void onClick(View view) {
-                try {
-                    String s1 = binding.edit01.getText().toString();
-                    x1 = Integer.parseInt(s1);
-                    String s2 = binding.edit02.getText().toString();
-                    x2 = Integer.parseInt(s2);
-                    String s3 = binding.edit03.getText().toString();
-                    x3 = Integer.parseInt(s3);
-                } catch (Exception e) {
-                    x1 = 0;
-                    x2 = 0;
-                    x3 = 0;
-                    Toast.makeText(MainActivity.this, "숫자를 제대로 입력해주세요.", Toast.LENGTH_SHORT).show();
-                }
 
-
-                if (x1 == n1)
-                    countStrike++;
-                else if (x1 == n2)
-                    countBall++;
-                else if (x1 == n3)
-                    countBall++;
-
-                if (x2 == n2)
-                    countStrike++;
-                else if (x2 == n1)
-                    countBall++;
-                else if (x2 == n3)
-                    countBall++;
-
-                if (x3 == n3)
-                    countStrike++;
-                else if (x3 == n2)
-                    countBall++;
-                else if (x3 == n1)
-                    countBall++;
-
-                binding.resultText.append(x1 + " " + x2 + " " + x3 + "   " + countStrike + "Strike " + countBall + "Ball\n");
-
-                if (countStrike == 3) {
-                    binding.endText.setText(x1 + " " + x2 + " " + x3 + " 정답입니다!");
-                    binding.endText.setVisibility(View.VISIBLE);
-                    binding.endImage.setVisibility(View.VISIBLE);
-                    InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                    manager.hideSoftInputFromWindow(binding.edit03.getWindowToken(), 0);
-                }
-
-                countBall = 0;
-                countStrike = 0;
-
-                binding.edit01.setText("");
-                binding.edit02.setText("");
-                binding.edit03.setText("");
-
-                binding.edit01.requestFocus();
-
-                binding.srcollview.fullScroll(ScrollView.FOCUS_DOWN);
+            try {
+                String s1 = binding.edit01.getText().toString();
+                x1 = Integer.parseInt(s1);
+                String s2 = binding.edit02.getText().toString();
+                x2 = Integer.parseInt(s2);
+                String s3 = binding.edit03.getText().toString();
+                x3 = Integer.parseInt(s3);
+            } catch (Exception e) {
+                Toast.makeText(MainActivity.this, "숫자를 제대로 입력해주세요.", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+
+            if (x1 == n1)
+                countStrike++;
+            else if (x1 == n2)
+                countBall++;
+            else if (x1 == n3)
+                countBall++;
+
+            if (x2 == n2)
+                countStrike++;
+            else if (x2 == n1)
+                countBall++;
+            else if (x2 == n3)
+                countBall++;
+
+            if (x3 == n3)
+                countStrike++;
+            else if (x3 == n2)
+                countBall++;
+            else if (x3 == n1)
+                countBall++;
+
+            binding.resultText.append(x1 + " " + x2 + " " + x3 + "   " + countStrike + "Strike " + countBall + "Ball\n");
+
+            if (countStrike == 3) {
+                binding.endText.setText(x1 + " " + x2 + " " + x3 + " 정답입니다!");
+                binding.endText.setVisibility(View.VISIBLE);
+                binding.endImage.setVisibility(View.VISIBLE);
+                InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                manager.hideSoftInputFromWindow(binding.edit03.getWindowToken(), 0);
+            }
+
+            countBall = 0;
+            countStrike = 0;
+
+            binding.edit01.setText("");
+            binding.edit02.setText("");
+            binding.edit03.setText("");
+
+            binding.edit01.requestFocus();
+
+            binding.srcollview.fullScroll(ScrollView.FOCUS_DOWN);
+            binding.kakaoAdview.loadAd();
         });
-        binding.kakaoAdview.loadAd();
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume () {
         super.onResume();
 
         if (binding.kakaoAdview != null) binding.kakaoAdview.resume();
     }
 
     @Override
-    protected void onPause() {
+    protected void onPause () {
         super.onPause();
 
         if (binding.kakaoAdview != null) binding.kakaoAdview.pause();
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onDestroy () {
         super.onDestroy();
 
         if (binding.kakaoAdview != null) binding.kakaoAdview.destroy();
@@ -182,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
     long lastTime;
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed () {
         if (!wasPressed) {
             Toast.makeText(this, "한 번 더 누르면 종료됩니다", Toast.LENGTH_SHORT).show();
             wasPressed = true;
