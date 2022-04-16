@@ -2,6 +2,7 @@ package com.bonustrack02.numberbaseballgametp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -46,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 AdRequest adRequest = new AdRequest.Builder().build();
                 binding.adview.loadAd(adRequest);
             }
+        });
+
+        binding.fab.setOnClickListener(view -> {
+            new AlertDialog.Builder(this).setTitle("도움말")
+                    .setMessage("1부터 9사이의 중복되지 않는 랜덤한 숫자가 3개 생성됩니다.\n" +
+                            "해당하는 숫자가 같은 위치에 있으면 스트라이크, 다른 위치에 있으면 볼입니다.\n").create().show();
         });
 
         Random rnd = new Random();

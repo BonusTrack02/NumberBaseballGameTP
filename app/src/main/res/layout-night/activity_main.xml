@@ -106,6 +106,22 @@
 
     </LinearLayout>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/kakao_adview"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        android:textSize="20dp"
+        android:src="@drawable/ic_baseline_help"
+        app:fabSize="normal"
+        app:borderWidth="0dp"
+        app:tint="@color/black"
+        android:backgroundTint="@color/purple_200"
+        android:fontFamily="@font/cookierunblack"/>
+
     <com.kakao.adfit.ads.ba.BannerAdView
         android:id="@+id/kakao_adview"
         android:layout_width="match_parent"
