@@ -18,10 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bonustrack02.numberbaseballgametp.databinding.ActivityMainBinding;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.gms.ads.initialization.InitializationStatus;
-import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.kakao.adfit.ads.ba.BannerAdView;
 
 import java.util.Date;
@@ -41,18 +38,12 @@ public class MainActivity extends AppCompatActivity {
 
         binding.kakaoAdview.setClientId("DAN-zpFTwikubnRm0cE7");
 
-        MobileAds.initialize(this, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
-                AdRequest adRequest = new AdRequest.Builder().build();
-                binding.adview.loadAd(adRequest);
-            }
-        });
-
         binding.fab.setOnClickListener(view -> {
-            new AlertDialog.Builder(this).setTitle("도움말")
+            new MaterialAlertDialogBuilder(this)
+                    .setTitle("도움말")
                     .setMessage("1부터 9사이의 중복되지 않는 랜덤한 숫자가 3개 생성됩니다.\n" +
-                            "해당하는 숫자가 같은 위치에 있으면 스트라이크, 다른 위치에 있으면 볼입니다.\n").create().show();
+                            "해당하는 숫자가 같은 위치에 있으면 스트라이크, 다른 위치에 있으면 볼입니다.\n")
+                    .show();
         });
 
         Random rnd = new Random();
