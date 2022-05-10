@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.bonustrack02.numberbaseballgametp.databinding.ActivityMainBinding;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.kakao.adfit.ads.AdListener;
 import com.kakao.adfit.ads.ba.BannerAdView;
 
 import java.util.Date;
@@ -26,7 +28,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    int n1, n2, n3, countStrike, countBall;
+    int n1, n2, n3, countStrike, countBall, cnt;
 
     ActivityMainBinding binding;
 
@@ -37,6 +39,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         binding.kakaoAdview.setClientId("DAN-zpFTwikubnRm0cE7");
+        binding.kakaoAdview.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                Log.i("AdState", "loaded");
+            }
+
+            @Override
+            public void onAdFailed(int i) {
+                Log.i("AdState", i + "");
+            }
+
+            @Override
+            public void onAdClicked() {
+                Log.i("AdState", "clicked");
+            }
+        });
+        binding.kakaoAdview.loadAd();
 
         binding.fab.setOnClickListener(view -> {
             new MaterialAlertDialogBuilder(this)
@@ -93,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
         binding.btnAnswer.setOnClickListener(view -> {
             int x1, x2, x3;
 
-
             try {
                 String s1 = binding.edit01.getText().toString();
                 x1 = Integer.parseInt(s1);
@@ -105,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "숫자를 제대로 입력해주세요.", Toast.LENGTH_SHORT).show();
                 return;
             }
-
 
             if (x1 == n1)
                 countStrike++;
@@ -128,14 +145,26 @@ public class MainActivity extends AppCompatActivity {
             else if (x3 == n1)
                 countBall++;
 
-            binding.resultText.append(x1 + " " + x2 + " " + x3 + "   " + countStrike + "Strike " + countBall + "Ball\n");
+            cnt++;
+
+            binding.resultText.append("시도 " + cnt + " : " + x1 + " " + x2 + " " + x3 + "   " + countStrike + "Strike " + countBall + "Ball\n");
 
             if (countStrike == 3) {
                 binding.endText.setText(x1 + " " + x2 + " " + x3 + " 정답입니다!");
                 binding.endText.setVisibility(View.VISIBLE);
                 binding.endImage.setVisibility(View.VISIBLE);
+                cnt = 0;
                 InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                 manager.hideSoftInputFromWindow(binding.edit03.getWindowToken(), 0);
+                binding.btnAnswer.setText("재시작");
+                binding.btnAnswer.setOnClickListener(view1 -> {
+                    binding.endText.setText("");
+                    binding.endText.setVisibility(View.GONE);
+                    binding.endImage.setVisibility(View.GONE);
+                    binding.resultText.setText("");
+                    binding.btnAnswer.setText("정답 확인");
+                    return;
+                });
             }
 
             countBall = 0;
@@ -148,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
             binding.edit01.requestFocus();
 
             binding.srcollview.fullScroll(ScrollView.FOCUS_DOWN);
-            binding.kakaoAdview.loadAd();
         });
     }
 
