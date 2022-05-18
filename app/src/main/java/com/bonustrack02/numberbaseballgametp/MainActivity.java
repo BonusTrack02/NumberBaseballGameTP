@@ -156,15 +156,6 @@ public class MainActivity extends AppCompatActivity {
                 cnt = 0;
                 InputMethodManager manager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                 manager.hideSoftInputFromWindow(binding.edit03.getWindowToken(), 0);
-                binding.btnAnswer.setText("재시작");
-                binding.btnAnswer.setOnClickListener(view1 -> {
-                    binding.endText.setText("");
-                    binding.endText.setVisibility(View.GONE);
-                    binding.endImage.setVisibility(View.GONE);
-                    binding.resultText.setText("");
-                    binding.btnAnswer.setText("정답 확인");
-                    return;
-                });
             }
 
             countBall = 0;

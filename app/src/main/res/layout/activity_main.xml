@@ -81,7 +81,9 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/cookierunblack"
             android:textSize="20sp"
-            android:visibility="gone" />
+            android:gravity="center_horizontal"
+            android:visibility="gone"
+            android:textColor="@color/black"/>
 
         <ImageView
             android:id="@+id/end_image"
