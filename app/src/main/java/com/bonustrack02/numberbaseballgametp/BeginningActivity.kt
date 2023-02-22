@@ -1,35 +1,28 @@
-package com.bonustrack02.numberbaseballgametp;
+package com.bonustrack02.numberbaseballgametp
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.os.Message
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.bonustrack02.numberbaseballgametp.databinding.ActivityBeginningBinding
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-
-import com.bonustrack02.numberbaseballgametp.databinding.ActivityBeginningBinding;
-
-public class BeginningActivity extends AppCompatActivity {
-
-    ActivityBeginningBinding binding;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityBeginningBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        handler.sendEmptyMessageDelayed(0, 2500);
+class BeginningActivity : AppCompatActivity() {
+    val binding: ActivityBeginningBinding by lazy { ActivityBeginningBinding.inflate(layoutInflater) }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        handler.sendEmptyMessageDelayed(0, 2500)
     }
 
-    Handler handler = new Handler(Looper.getMainLooper()) {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            Intent intent = new Intent(BeginningActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+    val handler: Handler = object : Handler(Looper.getMainLooper()) {
+        override fun handleMessage(msg: Message) {
+            val intent = Intent(this@BeginningActivity, MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
-    };
+    }
 }

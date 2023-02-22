@@ -15,8 +15,7 @@
         <activity
             android:name=".BeginningActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/BeginningFullscreen">
+            android:screenOrientation="portrait">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
