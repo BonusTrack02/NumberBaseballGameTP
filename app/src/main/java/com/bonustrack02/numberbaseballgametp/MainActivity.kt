@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
                     .setMessage("""
     1부터 9사이의 중복되지 않는 랜덤한 숫자가 3개 생성됩니다.
     해당하는 숫자가 같은 위치에 있으면 스트라이크, 다른 위치에 있으면 볼입니다.
-    
     """.trimIndent())
                     .show()
         }
@@ -94,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             if (x2 == n2) countStrike++ else if (x2 == n1) countBall++ else if (x2 == n3) countBall++
             if (x3 == n3) countStrike++ else if (x3 == n2) countBall++ else if (x3 == n1) countBall++
             cnt++
-            binding.resultText.append("""시도 $cnt : $x1 $x2 $x3   ${countStrike}Strike ${countBall}Ball""")
+            binding.resultText.append("시도 $cnt : $x1 $x2 $x3   ${countStrike}Strike ${countBall}Ball\n")
             if (countStrike == 3) {
                 binding.endText.text = "$x1 $x2 $x3 정답입니다!"
                 binding.endText.visibility = View.VISIBLE

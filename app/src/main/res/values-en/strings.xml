@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple Bulls and Cows</string>
+    <string name="menu_bnv_game">Game</string>
+    <string name="menu_bnv_score">Score</string>
+    <string name="menu_bnv_setting">Setting</string>
+</resources>

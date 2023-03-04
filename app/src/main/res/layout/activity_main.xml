@@ -122,15 +122,20 @@
         android:src="@drawable/ic_baseline_help"
         app:fabSize="normal"
         app:borderWidth="0dp"
-        app:tint="@null"
-        android:backgroundTint="@color/purple_500"
         android:fontFamily="@font/cookierunblack"/>
 
     <com.kakao.adfit.ads.ba.BannerAdView
         android:id="@+id/kakao_adview"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/bnv"
         android:layout_centerHorizontal="true"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bnv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bnv_item"/>
 
 </RelativeLayout>

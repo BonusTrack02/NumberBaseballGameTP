@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menv_bnv_game"
+        android:title="@string/menu_bnv_game"
+        android:icon="@drawable/casino_fill0_wght400_grad0_opsz24"/>
+    <item
+        android:id="@+id/menu_bnv_score"
+        android:title="@string/menu_bnv_score"
+        android:icon="@drawable/scoreboard_fill0_wght400_grad0_opsz24"/>
+    <item
+        android:id="@+id/menu_bnv_setting"
+        android:title="@string/menu_bnv_setting"
+        android:icon="@drawable/settings_fill0_wght400_grad0_opsz24"/>
+</menu>
