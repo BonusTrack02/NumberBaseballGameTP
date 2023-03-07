@@ -18,9 +18,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textSize="32dp"
+        android:textSize="40sp"
         android:gravity="center"
-        android:fontFamily="@font/cookierunblack"
+        android:fontFamily="@font/sandbox_aggro_bold"
         android:layout_below="@id/beginning_img"/>
 
 </RelativeLayout>

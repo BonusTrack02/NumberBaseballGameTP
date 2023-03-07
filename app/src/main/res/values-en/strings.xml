@@ -4,4 +4,6 @@
     <string name="menu_bnv_game">Game</string>
     <string name="menu_bnv_score">Score</string>
     <string name="menu_bnv_setting">Setting</string>
+    <string name="score_record">My Score Record</string>
+    <string name="score_count">Try</string>
 </resources>

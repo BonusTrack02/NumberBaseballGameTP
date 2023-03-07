@@ -26,7 +26,7 @@
                 android:layout_height="120dp"
                 android:gravity="center"
                 android:textSize="20sp"
-                android:fontFamily="@font/cookierunblack"
+                android:fontFamily="@font/sandbox_aggro_light"
                 android:textColor="@color/black"
                 android:inputType="number"
                 android:maxLength="1"
@@ -40,7 +40,7 @@
                 android:layout_marginRight="8dp"
                 android:gravity="center"
                 android:textSize="20sp"
-                android:fontFamily="@font/cookierunblack"
+                android:fontFamily="@font/sandbox_aggro_light"
                 android:textColor="@color/black"
                 android:inputType="number"
                 android:maxLength="1"
@@ -52,7 +52,7 @@
                 android:layout_height="120dp"
                 android:gravity="center"
                 android:textSize="20sp"
-                android:fontFamily="@font/cookierunblack"
+                android:fontFamily="@font/sandbox_aggro_light"
                 android:textColor="@color/black"
                 android:inputType="number"
                 android:maxLength="1"
@@ -68,7 +68,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
             style="@style/Widget.Material3.Button"
-            android:fontFamily="@font/cookierunblack"
+            android:fontFamily="@font/sandbox_aggro_light"
             android:textSize="20sp"
             android:text="정답 확인"/>
 
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:textSize="20sp"
-            android:fontFamily="@font/cookierunblack"
+            android:fontFamily="@font/sandbox_aggro_medium"
             android:gravity="center_horizontal"
             android:textColor="@color/white"/>
 
@@ -99,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
-                android:fontFamily="@font/cookierunblack"
+                android:fontFamily="@font/sandbox_aggro_medium"
                 android:textColor="@color/white"
                 android:textSize="24sp"/>
 
@@ -118,8 +118,7 @@
         android:textSize="20dp"
         android:src="@drawable/ic_baseline_help"
         app:fabSize="normal"
-        app:borderWidth="0dp"
-        android:fontFamily="@font/cookierunblack"/>
+        app:borderWidth="0dp" />
 
     <com.kakao.adfit.ads.ba.BannerAdView
         android:id="@+id/kakao_adview"

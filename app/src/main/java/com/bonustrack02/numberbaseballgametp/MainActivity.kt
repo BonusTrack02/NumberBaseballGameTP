@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
     1부터 9사이의 중복되지 않는 랜덤한 숫자가 3개 생성됩니다.
     해당하는 숫자가 같은 위치에 있으면 스트라이크, 다른 위치에 있으면 볼입니다.
     """.trimIndent())
-                    .show()
+                .show()
         }
         val rnd = Random()
         n1 = rnd.nextInt(9) + 1
@@ -129,6 +129,7 @@ class MainActivity : AppCompatActivity() {
 
     var wasPressed = false
     var lastTime: Long = 0
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (!wasPressed) {
             Toast.makeText(this, "한 번 더 누르면 종료됩니다", Toast.LENGTH_SHORT).show()
