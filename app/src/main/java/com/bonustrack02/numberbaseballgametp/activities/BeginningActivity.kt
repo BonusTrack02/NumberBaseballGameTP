@@ -1,4 +1,4 @@
-package com.bonustrack02.numberbaseballgametp
+package com.bonustrack02.numberbaseballgametp.activities
 
 import android.content.Intent
 import android.os.Bundle

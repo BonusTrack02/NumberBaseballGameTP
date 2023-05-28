@@ -1,137 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <EditText
-                android:id="@+id/edit01"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:fontFamily="@font/sandbox_aggro_light"
-                android:textColor="@color/black"
-                android:inputType="number"
-                android:maxLength="1"
-                android:background="@drawable/ic_baseball"/>
-
-            <EditText
-                android:id="@+id/edit02"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:fontFamily="@font/sandbox_aggro_light"
-                android:textColor="@color/black"
-                android:inputType="number"
-                android:maxLength="1"
-                android:background="@drawable/ic_baseball"/>
-
-            <EditText
-                android:id="@+id/edit03"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:fontFamily="@font/sandbox_aggro_light"
-                android:textColor="@color/black"
-                android:inputType="number"
-                android:maxLength="1"
-                android:imeOptions="actionDone"
-                android:background="@drawable/ic_baseball"/>
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="16dp"
-            style="@style/Widget.Material3.Button"
-            android:fontFamily="@font/sandbox_aggro_light"
-            android:textSize="20sp"
-            android:text="정답 확인"/>
-
-        <TextView
-            android:id="@+id/end_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:textSize="20sp"
-            android:fontFamily="@font/sandbox_aggro_medium"
-            android:gravity="center_horizontal"
-            android:textColor="@color/white"/>
-
-        <ImageView
-            android:id="@+id/end_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:src="@drawable/softball"/>
-
-        <ScrollView
-            android:id="@+id/srcollview"
-            android:layout_width="match_parent"
-            android:layout_height="300dp">
-
-            <TextView
-                android:id="@+id/result_text"
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/container_fragment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:fontFamily="@font/sandbox_aggro_medium"
-                android:textColor="@color/white"
-                android:textSize="24sp"/>
+                android:layout_height="match_parent" />
 
-        </ScrollView>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_baseline_help"
+                app:borderWidth="0dp"
+                app:fabSize="normal" />
+        </RelativeLayout>
 
+        <com.kakao.adfit.ads.ba.BannerAdView
+            android:id="@+id/kakao_adview"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bnv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bnv_item" />
     </LinearLayout>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/kakao_adview"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        android:textSize="20dp"
-        android:src="@drawable/ic_baseline_help"
-        app:fabSize="normal"
-        app:borderWidth="0dp" />
-
-    <com.kakao.adfit.ads.ba.BannerAdView
-        android:id="@+id/kakao_adview"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_above="@id/bnv"
-        android:layout_centerHorizontal="true"/>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/bnv_item"/>
-
-</RelativeLayout>
+</layout>
