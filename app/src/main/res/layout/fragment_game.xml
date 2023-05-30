@@ -70,6 +70,7 @@
             android:layout_marginBottom="16dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/layout_edit"
+            android:onClick="@{() -> gameViewModel.onSubmit(edit01.getText().toString(), edit02.getText().toString(), edit03.getText().toString())}"
             android:fontFamily="@font/sandbox_aggro_light"
             android:text="정답 확인"
             android:textSize="20sp" />
@@ -86,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sandbox_aggro_medium"
                 android:gravity="center_horizontal"
+                android:text="@{gameViewModel.stringBuilder.toString()}"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </ScrollView>
