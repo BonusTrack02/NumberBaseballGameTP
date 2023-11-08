@@ -16,6 +16,19 @@ class GameViewModel : ViewModel() {
     val resultText: LiveData<String>
         get() = _resultText
 
+    private val _hideKeyboardEvent = MutableLiveData<Unit>()
+    val hideKeyboardEvent: LiveData<Unit>
+        get() = _hideKeyboardEvent
+
+    private val _resetAllEditTextEvent = MutableLiveData<Unit>()
+    val resetAllEditTextEvent: LiveData<Unit>
+        get() = _resetAllEditTextEvent
+
+
+    private val _showAnswerImageEvent = MutableLiveData<Unit>()
+    val showAnswerImageEvent: LiveData<Unit>
+        get() = _showAnswerImageEvent
+
     init {
         Log.d("gameViewModel", "created")
         generateRandomNumber()
@@ -35,6 +48,8 @@ class GameViewModel : ViewModel() {
         do {
             num3 = random.nextInt(9) + 1
         } while (num1 == num3 || num2 == num3)
+
+        Log.d("answer", "$num1 $num2 $num3")
     }
 
     fun onSubmit(edit01: String, edit02: String, edit03: String) {
@@ -80,13 +95,22 @@ class GameViewModel : ViewModel() {
         Log.d("result", stringBuilder.toString())
 
         if (strikeCount == 3) {
-            // lottie image shown
-            // keypad hide
+            hideKeyboard()
+            showAnswerImage()
         }
 
-        // editText value erase
+        resetAllEditText()
+    }
 
-        // edit01 requestfocus
-        // scrollView fullscroll
+    private fun hideKeyboard() {
+        _hideKeyboardEvent.value = Unit
+    }
+
+    private fun resetAllEditText() {
+        _resetAllEditTextEvent.value = Unit
+    }
+
+    private fun showAnswerImage() {
+        _showAnswerImageEvent.value = Unit
     }
 }

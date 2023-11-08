@@ -6,4 +6,5 @@
     <string name="menu_bnv_setting">Setting</string>
     <string name="score_record">My Score Record</string>
     <string name="score_count">Try</string>
+    <string name="ok">OK</string>
 </resources>

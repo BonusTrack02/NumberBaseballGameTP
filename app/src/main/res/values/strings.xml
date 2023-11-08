@@ -5,4 +5,5 @@
     <string name="menu_bnv_setting">설정</string>
     <string name="score_record">나의 점수 기록</string>
     <string name="score_count">시도</string>
+    <string name="ok">확인</string>
 </resources>
